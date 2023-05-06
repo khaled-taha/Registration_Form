@@ -25,7 +25,7 @@ public class UserService {
             User savedUser = UserDto.mapFrom(user);
             userRepo.save(savedUser);
         } catch (Exception e){
-            throw new BadRequest("Error");
+            throw new BadRequest(e.getMessage());
         }
 
     }

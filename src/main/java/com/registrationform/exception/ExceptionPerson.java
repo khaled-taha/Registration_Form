@@ -29,7 +29,7 @@ public class ExceptionPerson {
         }
 
     @ExceptionHandler(value={BadRequest.class})
-    public ResponseEntity<?> handelBadREquest(BadRequest badRequest){
+    public ResponseEntity<?> handelBadRequest(BadRequest badRequest){
         ExceptionResponse response =
                 new ExceptionResponse(badRequest.getMessage()
                         , HttpStatus.BAD_REQUEST
