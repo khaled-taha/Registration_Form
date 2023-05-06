@@ -21,10 +21,11 @@ public class UserService {
         if(this.userRepo.findByNationalId(user.getNationalId()).isPresent()){
             throw new RepeatedNationalId("Error: National ID must be unique and consist of 14 digits");
         }
+        User savedUser = UserDto.mapFrom(user);
         try {
-            User savedUser = UserDto.mapFrom(user);
             userRepo.save(savedUser);
         } catch (Exception e){
+            System.out.println(e.getMessage());
             throw new BadRequest(e.getMessage());
         }
 

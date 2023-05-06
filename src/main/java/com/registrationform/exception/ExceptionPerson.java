@@ -17,17 +17,6 @@ import java.util.List;
 @ControllerAdvice
 public class ExceptionPerson {
 
-
-    @ExceptionHandler(value = {NotFoundException.class})
-    public ResponseEntity<?> handelException(NotFoundException e){
-
-            ExceptionResponse response =
-                    new ExceptionResponse(e.getMessage()
-                    , HttpStatus.NOT_FOUND
-                    , LocalDateTime.now());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-
     @ExceptionHandler(value={BadRequest.class})
     public ResponseEntity<?> handelBadRequest(BadRequest badRequest){
         ExceptionResponse response =
@@ -40,7 +29,11 @@ public class ExceptionPerson {
     @ExceptionHandler(RepeatedNationalId.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ResponseEntity<Object> handleValidationException(RepeatedNationalId ex) {
-        return ResponseEntity.badRequest().body(ex.getMessage());
+        ExceptionResponse response =
+                new ExceptionResponse(ex.getMessage()
+                        , HttpStatus.BAD_REQUEST
+                        , LocalDateTime.now());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 
     }
 
