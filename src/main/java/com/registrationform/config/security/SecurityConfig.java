@@ -16,8 +16,8 @@ public class SecurityConfig {
                 .cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/users").permitAll()
-                .anyRequest().denyAll()
+           //     .requestMatchers("/users").permitAll()
+                .anyRequest().permitAll()
 
                 .and().httpBasic();
 

@@ -32,6 +32,10 @@ public class User {
     private String firstName;
 
     @NotBlank(message = "${NotBlank.user.lastName}")
+    @Column(name = "secondName")
+    private String secondName;
+
+    @NotBlank(message = "${NotBlank.user.lastName}")
     @Column(name = "lastName")
     private String lastName;
 

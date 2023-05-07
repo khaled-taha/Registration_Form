@@ -9,6 +9,8 @@ import lombok.Data;
 @Data
 public class UserDto {
     private String firstName;
+
+    private String secondName;
     private String lastName;
     private int level;
     private String nationalId;
@@ -21,6 +23,7 @@ public class UserDto {
         NationalIdUtils nationalId = new NationalIdUtils(dto.nationalId, getLevel(dto.level));
 
         user.setFirstName(ArabicUtils.normalize(dto.firstName));
+        user.setSecondName(ArabicUtils.normalize(dto.secondName));
         user.setLastName(ArabicUtils.normalize(dto.lastName));
         user.setDarName(ArabicUtils.normalize(dto.darName));
         user.setNationalId(dto.nationalId);
