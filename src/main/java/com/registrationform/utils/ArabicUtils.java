@@ -3,6 +3,9 @@ package com.registrationform.utils;
 public class ArabicUtils {
 
     public static String normalize(String input) {
+        input = input.strip();
+        input = input.replaceAll("\s+", " ");
+
         //Remove honorific sign
         input=input.replaceAll("\u0610", "");//ARABIC SIGN SALLALLAHOU ALAYHE WA SALLAM
         input=input.replaceAll("\u0611", "");//ARABIC SIGN ALAYHE ASSALLAM
@@ -88,6 +91,7 @@ public class ArabicUtils {
 
         return input;
     }
+
 
 }
 
