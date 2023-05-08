@@ -34,6 +34,7 @@ public class UserDto {
         user.setAge(nationalId.getAge());
         user.setGender(nationalId.getGender());
         user.setState(nationalId.getState());
+        System.out.println(user);
         return user;
     }
 //
