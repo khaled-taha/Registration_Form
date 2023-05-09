@@ -19,13 +19,6 @@ spring:
       jdbc:
         lob:
           non_contextual_creation: true
-  mvc:
-    media-types:
-      json: application/json
-      multipart: multipart/form-data
-      servlet:
-        multipart:
-          enabled: true
 
   datasource:
     driver-class-name: org.postgresql.Driver
