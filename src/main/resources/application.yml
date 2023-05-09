@@ -27,4 +27,10 @@ spring:
         multipart:
           enabled: true
 
-
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5433/form-db
+    database: form-db
+    password: password
+    username: postgres
