@@ -9,7 +9,7 @@ public class CorsConfig implements WebMvcConfigurer{
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/users").allowedMethods("POST").allowedOrigins("https://userform-homepage.herokuapp.com")
+        registry.addMapping("/users").allowedMethods("POST").allowedOrigins("*")
                 .allowedHeaders("*");
     }
 }
