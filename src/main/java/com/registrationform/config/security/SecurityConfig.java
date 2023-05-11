@@ -17,7 +17,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/users").permitAll()
-                .anyRequest().denyAll()
+               // .anyRequest().denyAll()
                 .and().httpBasic();
 
         return http.build();
