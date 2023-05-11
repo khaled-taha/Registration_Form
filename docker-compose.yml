@@ -7,37 +7,41 @@ services:
     ports:
       - "8087:8083"
     depends_on:
-      - postgres
+      - mysql
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/form-db
-      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/form_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
     networks:
       app_network:
-  ### Postgres Database ###
-  postgres:
-    container_name: postgres-form
-    image: postgres:10.4
-    hostname: postgres
+
+  ### MySQL Database ###
+  mysql:
+    container_name: mysql-form
+    image: mysql:8.0
+    hostname: mysql
     ports:
-      - "5433:5432"
+      - "3305:3306"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: form-db
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: form_db
     networks:
       app_network:
-  ### Postgres Adminer ###
-  postgres_admin:
-    image: dpage/pgadmin4:4.28
+
+  phpmyadmin:
+    container_name: phpmyadmin-form
+    image: phpmyadmin/phpmyadmin:latest
     depends_on:
-      - postgres
+      - mysql
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.de
-      PGADMIN_DEFAULT_PASSWORD: password
+      PMA_HOST: mysql
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
     ports:
-      - "5050:80"
+      - "6060:80"
     networks:
       app_network:
+
 networks:
   app_network:
