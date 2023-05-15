@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 public class UserDto {
     private String firstName;
-
     private String secondName;
     private String lastName;
     private int level;
