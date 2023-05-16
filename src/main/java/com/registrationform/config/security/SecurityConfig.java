@@ -18,7 +18,7 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors().configurationSource(corsConfigurationSource())
+                .cors()
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
@@ -29,15 +29,4 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.applyPermitDefaultValues();
-        configuration.setAllowedMethods(Collections.singletonList("POST"));
-        configuration.setAllowedOrigins(Collections.singletonList("https://www.ahbabkhatamelmorsalen.com"));
-        configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
 }
