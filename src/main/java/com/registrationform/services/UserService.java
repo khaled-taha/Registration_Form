@@ -10,15 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Pattern;
+
 @Service
 @AllArgsConstructor
 public class UserService {
+
+    private static final String ID_REGEX = "\\d{14}";
+    private static final String PHONE_REGEX = "\\d{11}";
 
     @Autowired
     private UserRepo userRepo;
 
     public void save(UserDto user){
-        if(this.userRepo.findByNationalId(user.getNationalId()).isPresent()){
+        if(validatePhoneNumber(user.getPhone()))
+            throw new BadRequest("Error: Phone must be unique and consist of 11 digits");
+
+        if(validateId(user.getNationalId()) || this.userRepo.findByNationalId(user.getNationalId()).isPresent()){
             throw new RepeatedNationalId("Error: National ID must be unique and consist of 14 digits");
         }
         User savedUser = UserDto.mapFrom(user);
@@ -29,5 +37,13 @@ public class UserService {
             throw new BadRequest(e.getMessage());
         }
 
+    }
+
+    public static boolean validateId(String id) {
+        return Pattern.matches(ID_REGEX, id);
+    }
+
+    public static boolean validatePhoneNumber(String phoneNumber) {
+        return Pattern.matches(PHONE_REGEX, phoneNumber);
     }
 }

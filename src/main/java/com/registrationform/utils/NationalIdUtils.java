@@ -4,8 +4,12 @@ import com.registrationform.entity.Level;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class NationalIdUtils {
+
+
 
     private String nationalId;
     private Level level;
@@ -48,6 +52,9 @@ public class NationalIdUtils {
             return 0;
         }
     }
+
+
+
 
     public static void main(String[] args) {
         NationalIdUtils utils = new NationalIdUtils("30003132103576", Level.LEVEL1);
