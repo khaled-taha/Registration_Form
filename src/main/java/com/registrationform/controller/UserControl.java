@@ -27,7 +27,7 @@ public class UserControl {
         return "/";
     }
 
-    @GetMapping("/state")
+    @GetMapping("/Register/state")
     public String state() {
         return "/";
     }
