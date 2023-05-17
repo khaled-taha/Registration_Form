@@ -27,6 +27,11 @@ public class UserControl {
         return "/";
     }
 
+    @GetMapping("/state")
+    public String state() {
+        return "/";
+    }
+
     @PostMapping("/api/users")
     public ResponseEntity<?> saveUser(@RequestBody UserDto user) {
         userService.save(user);
