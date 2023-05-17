@@ -23,6 +23,7 @@ public class UserService {
     private UserRepo userRepo;
 
     public void save(UserDto user){
+        System.out.println(user);
         if(validatePhoneNumber(user.getPhone()))
             throw new BadRequest("Error: Phone must be unique and consist of 11 digits");
 
@@ -45,5 +46,9 @@ public class UserService {
 
     public static boolean validatePhoneNumber(String phoneNumber) {
         return Pattern.matches(PHONE_REGEX, phoneNumber);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(validatePhoneNumber("12345678912"));
     }
 }

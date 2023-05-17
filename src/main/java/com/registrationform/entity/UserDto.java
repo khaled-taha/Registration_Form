@@ -4,9 +4,11 @@ package com.registrationform.entity;
 import com.registrationform.utils.ArabicUtils;
 import com.registrationform.utils.NationalIdUtils;
 import lombok.Data;
+import lombok.ToString;
 
 
 @Data
+@ToString
 public class UserDto {
     private String firstName;
     private String secondName;
