@@ -29,7 +29,7 @@ public class UserControl {
 
     @GetMapping("/Register/state")
     public String state() {
-        return "redirect:/";
+        return "/";
     }
 
     @PostMapping("/api/users")
