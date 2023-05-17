@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /api
+    context-path: /
   port: 8083
 
 # swagger-ui custom path
@@ -25,3 +25,5 @@ spring:
     url: jdbc:mysql://localhost:3305/form_db?createDatabaseIfNotExist=true
     username: root
     password: password
+  resources:
+    static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/
