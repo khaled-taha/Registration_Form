@@ -24,10 +24,10 @@ public class UserService {
 
     public void save(UserDto user){
         System.out.println(user);
-        if(validatePhoneNumber(user.getPhone()))
+        if(!validatePhoneNumber(user.getPhone()))
             throw new BadRequest("Error: Phone must be unique and consist of 11 digits");
 
-        if(validateId(user.getNationalId()) || this.userRepo.findByNationalId(user.getNationalId()).isPresent()){
+        if(!validateId(user.getNationalId()) || this.userRepo.findByNationalId(user.getNationalId()).isPresent()){
             throw new RepeatedNationalId("Error: National ID must be unique and consist of 14 digits");
         }
         User savedUser = UserDto.mapFrom(user);
