@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
 @AllArgsConstructor
 public class UserService {
 
-    private static final String ID_REGEX = "\\d{14}";
-    private static final String PHONE_REGEX = "\\d{11}";
+    private static final String ID_REGEX = "[0-9]{14}";
+    private static final String PHONE_REGEX = "[0-9]{11}";
 
     @Autowired
     private UserRepo userRepo;
