@@ -27,7 +27,7 @@ public class UserControl {
         return "/";
     }
 
-    @PostMapping("api/users")
+    @PostMapping("/api/users")
     public ResponseEntity<?> saveUser(@RequestBody UserDto user) {
         userService.save(user);
         return new ResponseEntity<>(HttpStatus.OK);
