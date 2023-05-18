@@ -42,7 +42,7 @@ public class NationalIdUtils {
     }
 
     public boolean getState(){
-        return getAge() != level.getAge();
+        return getAge() == level.getAge();
     }
 
     private int calculateAge(LocalDate birthDate, LocalDate currentDate) {
@@ -57,8 +57,11 @@ public class NationalIdUtils {
 
 
     public static void main(String[] args) {
-        NationalIdUtils utils = new NationalIdUtils("30003132103576", Level.LEVEL1);
+        NationalIdUtils utils = new NationalIdUtils("31505052100461", Level.LEVEL6);
+        System.out.println(Level.LEVEL6.getAge());
         System.out.println(utils.getBirthDate());
+        System.out.println(utils.getAge());
+        System.out.println(utils.getState());
     }
 
 }
