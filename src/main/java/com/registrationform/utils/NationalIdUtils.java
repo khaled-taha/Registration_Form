@@ -42,7 +42,7 @@ public class NationalIdUtils {
     }
 
     public boolean getState(){
-        return getAge() == level.getAge();
+        return getAge() <= level.getAge();
     }
 
     private int calculateAge(LocalDate birthDate, LocalDate currentDate) {
