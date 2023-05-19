@@ -80,7 +80,7 @@ public class ArabicUtils {
 
         //Replace Ya
         // and Ya Hamza Above by Alif Maksura
-        input=input.replaceAll("\u064A", "\u0649");
+       // input=input.replaceAll("\u064A", "\u0649");
         input=input.replaceAll("\u0626", "\u0649");
 
         // Replace Alifs with Hamza Above/Below
@@ -92,6 +92,9 @@ public class ArabicUtils {
         return input;
     }
 
+    public static void main(String[] args) {
+        System.out.println(ArabicUtils.normalize("يب"));
+    }
 
 }
 
