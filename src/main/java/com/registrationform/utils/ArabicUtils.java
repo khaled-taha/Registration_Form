@@ -92,9 +92,5 @@ public class ArabicUtils {
         return input;
     }
 
-    public static void main(String[] args) {
-        System.out.println(ArabicUtils.normalize("يب"));
-    }
-
 }
 

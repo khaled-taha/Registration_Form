@@ -55,13 +55,4 @@ public class NationalIdUtils {
 
 
 
-
-    public static void main(String[] args) {
-        NationalIdUtils utils = new NationalIdUtils("31505052100461", Level.LEVEL6);
-        System.out.println(Level.LEVEL6.getAge());
-        System.out.println(utils.getBirthDate());
-        System.out.println(utils.getAge());
-        System.out.println(utils.getState());
-    }
-
 }
